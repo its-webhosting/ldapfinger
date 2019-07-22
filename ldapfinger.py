@@ -24,7 +24,7 @@ def printbarrdn(r, k):
     try:
         barr=r[k]
         for b in barr:
-            if (sys.version_info > (3, 0)):
+            if (sys.version_info >= (3, 0)):
                 for s in str(b, 'utf-8').split(" $ "):
                     print("              ", twosig(s) )
             else:
@@ -37,7 +37,7 @@ def printbarr(r, k):
     try:
         barr = r[k]
         for b in barr:
-            if (sys.version_info > (3, 0)):
+            if (sys.version_info >= (3, 0)):
                 for s in str(b, 'utf-8').split(" $ "):
                     print("              ", s )
             else:
