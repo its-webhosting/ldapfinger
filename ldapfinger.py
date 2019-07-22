@@ -3,6 +3,8 @@
 ## NEEDS:
 ## pip install python-ldap
 
+from __future__ import print_function
+
 import sys
 if (len(sys.argv)==1):
     print("Usage: %s uid/group" % sys.argv[0])
@@ -22,8 +24,12 @@ def printbarrdn(r, k):
     try:
         barr=r[k]
         for b in barr:
-            for s in str(b, 'utf-8').split(" $ "):
-                print("              ", twosig(s) )
+            if (sys.version_info > (3, 0)):
+                for s in str(b, 'utf-8').split(" $ "):
+                    print("              ", twosig(s) )
+            else:
+                for s in str(b).split(" $ "):
+                    print("              ", twosig(s) )
     except:
         pass
 
@@ -31,8 +37,12 @@ def printbarr(r, k):
     try:
         barr = r[k]
         for b in barr:
-            for s in str(b, 'utf-8').split(" $ "):
-                print("              ", s )
+            if (sys.version_info > (3, 0)):
+                for s in str(b, 'utf-8').split(" $ "):
+                    print("              ", s )
+            else:
+                for s in str(b).split(" $ "):
+                    print("              ", s )
     except:
         pass
 
